@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* o . é para chamar a classe */
+.navbar {
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ccc;
+  width: 75%;
+  margin: 0 auto;
+}
+
+img {
+  width: 25%;
+}
+
+.video {
+  width: 75%;
+  aspect-ratio: 16/9;
+  margin: 0 auto;
+  display: block;
+}
