@@ -1,45 +1,242 @@
-/* reset básico de css, só pra garantir que todos os navegadores abram a pagina por igual */
-* {
-  padding: 0;
-  margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&display=swap');
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
-
-/* o . é para chamar a classe */
-.navbar {
-  font-size: 32px;
-  /* transformar o bloco em flexivel, por padrão os itens internos ficarão lado a lado */
-  display: flex;
-  /* alinhar o conteudo do bloco flex ao centro da tela */
-  justify-content: center;
-  /* inserir um vão entre os elementos */
-  gap: 10px;
-  list-style: none;
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
 }
 
-.navbar a {
+/*
+  10. Remove links decorations and colors
+*/
+a {
+  color: inherit;
   text-decoration: none;
+}
+
+:root {
+  --background: #f9f3e5;
+  --black: #020200;
+  --dark-yellow: #dbb778;
+  --gray-yellow: #c9bbb0;
+}
+
+body {
+  background-color: var(--background);
+  font-family: 'Noto Sans', sans-serif;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  font-size: 1.75rem;
+  color: var(--black);
+  justify-content: flex-end;
+  margin-right: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+nav ul li a:hover {
+  color: var(--dark-yellow);
+  transition: color 0.3s;
+}
+
+main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
 }
 
 .banner {
   display: flex;
   align-items: center;
-  background: #ccc;
-  /* definir uma largura de acordo com a porcentagem da tela */
-  width: 75%;
-  /* margem 0 em cima e em baixo do elemento, e por igual aos lados, de forma a centralizar o conteudo */
-  margin: 0 auto;
+  background-color: var(--gray-yellow);
+  border-radius: 12px;
+  padding: 1.5rem;
 }
 
-img {
-  width: 25%;
+.textos {
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-weight: 300;
+}
+
+.patoResponsivo {
+  width: max(250px, 25%);
+  object-fit: contain;
 }
 
 .video {
-  width: 75%;
-  /* aspect-ratio serve para manter a proporção do elemento, como uma foto ou uma tela de TV */
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.video iframe {
+  width: 100%;
   aspect-ratio: 16/9;
+  border-radius: 16px;
+}
+
+footer {
+  text-align: center;
+  border-top: 2px solid var(--dark-yellow);
+  margin-top: 2rem;
+  padding: 2rem 0;
+}
+
+/* ! pagina contato */
+
+.mainFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70vh;
+}
+
+.left {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.left form {
   margin: 0 auto;
-  /* transformar um elemento que não seja BLOCK por padrão, em uma elemento de bloco */
-  display: block;
+  width: 30vw;
+  padding: 0 2rem;
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--dark-yellow);
+  background-color: #dbb77860;
+  color: var(--black);
+}
+
+button:hover {
+  background-color: var(--dark-yellow);
+  cursor: pointer;
+}
+
+.right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.right p {
+  text-align: center;
+}
+
+.right iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    justify-content: center;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  .banner {
+    flex-direction: column-reverse;
+  }
+
+  .mainFlex {
+    flex-direction: column;
+  }
+
+  .left form {
+    width: 100%;
+  }
 }
