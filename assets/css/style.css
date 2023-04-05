@@ -1,3 +1,4 @@
+/* reset básico de css, só pra garantir que todos os navegadores abram a pagina por igual */
 * {
   padding: 0;
   margin: 0;
@@ -7,8 +8,11 @@
 /* o . é para chamar a classe */
 .navbar {
   font-size: 32px;
+  /* transformar o bloco em flexivel, por padrão os itens internos ficarão lado a lado */
   display: flex;
+  /* alinhar o conteudo do bloco flex ao centro da tela */
   justify-content: center;
+  /* inserir um vão entre os elementos */
   gap: 10px;
   list-style: none;
 }
@@ -19,10 +23,11 @@
 
 .banner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background: #ccc;
+  /* definir uma largura de acordo com a porcentagem da tela */
   width: 75%;
+  /* margem 0 em cima e em baixo do elemento, e por igual aos lados, de forma a centralizar o conteudo */
   margin: 0 auto;
 }
 
@@ -32,7 +37,9 @@ img {
 
 .video {
   width: 75%;
+  /* aspect-ratio serve para manter a proporção do elemento, como uma foto ou uma tela de TV */
   aspect-ratio: 16/9;
   margin: 0 auto;
+  /* transformar um elemento que não seja BLOCK por padrão, em uma elemento de bloco */
   display: block;
 }
