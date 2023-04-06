@@ -1,29 +1,54 @@
-// Declaração de variaveis;
-// Estruturas de decisão;
-// Estruturas de repetição;
-// Função;
+const nome = window.document.getElementById('nome');
+const email = window.document.getElementById('email');
+const assunto = window.document.getElementById('assunto');
 
-// Criação de variaveis
-// escopo global e pode ser redefinido - não é mais indicado oficialmente
-var nomeDaVar
-// escopo local e pode ser redefinido
-let nomeDoLet
-// escopo local e NÃO pode ser redefinido
-const nomeDaConst = 'thiago'
+let nomeOk = false;
+let emailOk = false;
+let assuntoOk = false;
 
-// Capturando elementos da DOM
-const nome = window.document.getElementById('nome')
-// const input = window.document.getElementsByTagName('input')
-
-// Criando funções com o JS
-function lerNome() {
-  const txtNome = document.querySelector('#txtNome')
-  // console.log(nome.value.length)
-  if(nome.value.length < 3){
-    // console.log('Nome inválido');
-    txtNome.innerHTML = '<small>Nome inválido</small>'
+function validaNome() {
+  const txtNome = document.querySelector('#txtNome');
+  if (nome.value.length < 3) {
+    txtNome.innerHTML = '<small>Nome inválido</small>';
+    nome.style.borderColor = 'red';
+    nomeOk = false;
   } else {
-    // console.log('Nome válido');
-    txtNome.innerHTML = '<small>Nome válido</small>'
+    txtNome.innerHTML = '<small>Nome válido</small>';
+    nome.style.borderColor = 'green';
+    nomeOk = true;
+  }
+}
+
+function validaEmail() {
+  const txtEmail = document.querySelector('#txtEmail');
+  if (email.value.indexOf('@') == -1 || email.value.indexOf('.') == -1) {
+    txtEmail.innerHTML = '<small>E-mail inválido</small>';
+    email.style.borderColor = 'red';
+    emailOk = false;
+  } else {
+    txtEmail.innerHTML = '<small>E-mail válido</small>';
+    email.style.borderColor = 'green';
+    emailOk = true;
+  }
+}
+
+function validaAssunto() {
+  const txtAssunto = document.querySelector('#txtAssunto');
+  if (assunto.value.length <= 10) {
+    txtAssunto.innerHTML = '<small>Assunto válido</small>';
+    assunto.style.borderColor = 'green';
+    assuntoOk = true
+  } else {
+    txtAssunto.innerHTML = '<small>Assunto inválido</small>';
+    assunto.style.borderColor = 'red';
+    assuntoOk = false
+  }
+}
+
+function enviar() {
+  if(nomeOk === true && emailOk === true && assuntoOk === true) {
+    alert('Formulário enviado com sucesso! Aguarde uma resposta, que um dia ela chega')
+  } else {
+    alert('Preencha o formulário corretamente, por favor. Sujeito a paulada')
   }
 }

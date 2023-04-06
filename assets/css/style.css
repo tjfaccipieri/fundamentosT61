@@ -183,15 +183,26 @@ footer {
   padding: 0 2rem;
 }
 
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap:4px;
+  margin-bottom: 10px;
+}
+
 input,
 textarea,
 button {
   width: 100%;
   padding: 4px 8px;
   border-radius: 8px;
-  border: 1px solid var(--dark-yellow);
+  border: 2px solid var(--dark-yellow);
   background-color: #dbb77860;
   color: var(--black);
+}
+
+input:focus, textarea:focus {
+  outline: none;
 }
 
 button:hover {
